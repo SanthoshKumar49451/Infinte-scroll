@@ -1,4 +1,4 @@
-// InfinteScroll.jsx
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -45,10 +45,14 @@ const InfinteScroll = () => {
       )
     : posts;
 
+  const handleClearSearch = () => {
+    setSearchTerm("");
+  };
+
   return (
     <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-gray-100">
-        Infinite Scroll with Search 
+        Infinite Scroll with Search
       </h2>
 
       <input
@@ -76,20 +80,43 @@ const InfinteScroll = () => {
           </p>
         }
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts.map((item) => (
-            <div
-              key={item.id}
-              className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in hover:cursor-pointer "
+        {filteredPosts.length === 0 ? (
+          <div className="text-center py-12">
+            <img
+              src="https://www.svgrepo.com/show/327408/no-data.svg"
+              alt="No data"
+              className="w-40 h-40 mx-auto mb-4 opacity-70 dark:invert"
+            />
+            <p className="text-gray-500 dark:text-gray-400 text-lg mb-4">
+              No comments found.
+            </p>
+            <button
+              onClick={handleClearSearch}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
             >
-              <p className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">
-                {item.name}
-              </p>
-              <p className="text-sm text-blue-600 dark:text-blue-400 mb-2">{item.email}</p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{item.body}</p>
-            </div>
-          ))}
-        </div>
+              Clear Search
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPosts.map((item) => (
+              <div
+                key={item.id}
+                className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in hover:cursor-pointer"
+              >
+                <p className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">
+                  {item.name}
+                </p>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mb-2">
+                  {item.email}
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </InfiniteScroll>
     </div>
   );
