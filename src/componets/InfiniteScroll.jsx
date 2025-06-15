@@ -4,6 +4,7 @@ import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Circles } from "react-loader-spinner";
 
+
 const PAGE_SIZE = 20;
 
 const InfinteScroll = () => {
@@ -20,7 +21,9 @@ const InfinteScroll = () => {
       );
 
       const newPosts = response.data;
+    console.log(newPosts)
       setPosts((prev) => [...prev, ...newPosts]);
+
 
       if (newPosts.length < PAGE_SIZE) {
         setHasMore(false);
