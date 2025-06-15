@@ -1,12 +1,41 @@
-# React + Vite
+# Infinite Scroll App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React application that implements infinite scrolling with search functionality. It fetches comments from a public API and displays them in a responsive grid layout with dark mode support.
 
-Currently, two official plugins are available:
+### 🔗 Live Demo
+👉 https://infinte-scroll-tau.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📁 GitHub Repo
+👉 https://github.com/SanthoshKumar49451/Infinte-scroll
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Infinite scroll with data from JSONPlaceholder
+- Search comments by name, email, or body
+- Responsive grid layout
+- Dark mode support
+- No data illustration and clear search button
+
+---
+
+## 🚀 Getting Started
+
+git clone https://github.com/SanthoshKumar49451/Infinte-scroll
+cd Infinte-scroll
+npm install
+npm start
+
+yaml
+Copy
+Edit
+
+---
+
+## 🛠 Built With
+
+- React
+- Tailwind CSS
+- Axios
+- react-infinite-scroll-component
