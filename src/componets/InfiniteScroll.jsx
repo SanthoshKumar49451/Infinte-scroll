@@ -21,7 +21,7 @@ const InfinteScroll = () => {
       );
 
       const newPosts = response.data;
-    console.log(newPosts)
+      console.log(newPosts)
       setPosts((prev) => [...prev, ...newPosts]);
 
 
@@ -41,11 +41,11 @@ const InfinteScroll = () => {
 
   const filteredPosts = searchTerm
     ? posts.filter(
-        (item) =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.body.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      (item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.body.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     : posts;
 
   const handleClearSearch = () => {
@@ -74,8 +74,9 @@ const InfinteScroll = () => {
         hasMore={hasMore}
         loader={
           <div className="flex justify-center py-6">
-            <Circles height="40" width="40" color="#3b82f6" />
+            <div className="w-10 h-10 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
           </div>
+
         }
         endMessage={
           <p className="text-center mt-6 text-gray-600 dark:text-gray-400">
